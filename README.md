@@ -26,7 +26,7 @@ has_many :orders
 |category_id        |integer    |null: false                    |
 |condition_id       |integer    |null: false                    |
 |delivery_charge_id |integer    |null: false                    |
-|sender_area_id     |integer    |null: false                    |
+|send_area_id       |integer    |null: false                    |
 |sender_day_id      |integer    |null: false                    |
 |user               |references |null: false, foreign_key: true |
 
@@ -51,8 +51,8 @@ belongs_to :item
 |Column              |Type       |Options                        |
 |--------------------|-----------|-------------------------------|
 |post_code           |string     |null: false                    |
-|send_prefecture_id  |integer    |null: false                    |
 |send_municipalities |string     |null: false                    |
+|send_area_id        |integer    |null: false                    |
 |send_address_number |string     |null: false                    |
 |tel_number          |string     |null: false                    |
 |building_name       |string     |                               |
