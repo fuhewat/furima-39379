@@ -3,12 +3,14 @@
 ## users
 |Column              |Type    |Options                   |
 |--------------------|--------|--------------------------|
-|nick-name           |text    |null: false               |
+|nick_name           |string  |null: false               |
 |email               |string  |null: false, unique: true |
 |encrypted_password  |string  |null: false               |
-|name                |string  |null: false               |
-|kana_name           |string  |null: false               |
-|date_birth          |string  |null: false               |
+|first_name          |string  |null: false               |
+|last_name           |string  |null: false               |
+|kana_first_name     |string  |null: false               |
+|kana_last_name      |string  |null: false               |
+|date_birth          |date    |null: false               |
 
 ### Association
 has_many :items
@@ -19,14 +21,13 @@ has_many :orders
 |Column             |Type       |Options                        |
 |-------------------|-----------|-------------------------------|
 |title              |string     |null: false                    |
-|description_item   |string     |null: false                    |
-|image              |string     |null: false                    |
+|description_item   |text       |null: false                    |
 |price              |integer    |null: false                    |
-|category           |string     |null: false                    |
-|condition          |string     |null: false                    |
-|delivery-charge    |string     |null: false                    |
-|sender-area        |string     |null: false                    |
-|sender-days        |text       |null: false                    |
+|category_id        |integer    |null: false                    |
+|condition_id       |integer    |null: false                    |
+|delivery_charge_id |integer    |null: false                    |
+|sender_area_id     |integer    |null: false                    |
+|sender_day_id      |integer    |null: false                    |
 |user               |references |null: false, foreign_key: true |
 
 ### Association
@@ -39,7 +40,6 @@ has_one    :order
 |--------|-----------|-------------------------------|
 |user    |references |null: false, foreign_key: true |
 |item    |references |null: false, foreign_key: true |
-|address |references |null: false, foreign_key: true |
 
 ### Association
 has_one    :address
@@ -48,13 +48,15 @@ belongs_to :item
 
 
 ## addresses
-|Column              |Type       |Options                       |
+|Column              |Type       |Options                        |
 |--------------------|-----------|-------------------------------|
 |post_code           |string     |null: false                    |
-|send_prefectures    |string     |null: false                    |
+|send_prefecture_id  |integer    |null: false                    |
 |send_municipalities |string     |null: false                    |
 |send_address_number |string     |null: false                    |
 |tel_number          |string     |null: false                    |
+|building_name       |string     |                               |
+|order               |references |null: false, foreign_key: true |
 
 ### Association
 belongs_to :order
