@@ -75,7 +75,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '価格は半角数値でしか登録できない' do
-        @item.price = '１００００'
+        @item.price = '１０１０'
         @item.valid?
         expect(@item.errors.full_messages).to include "Price should be between 300 and 9999999"
       end
@@ -84,6 +84,12 @@ RSpec.describe Item, type: :model do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "User must exist"
+      end
+
+      it '画像が空では保存できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Image can't be blank"
       end
 
     end
