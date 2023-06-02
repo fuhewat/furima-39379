@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  has_many :articles
   has_one :category
   has_one :condition
   has_one :delivery_charge
