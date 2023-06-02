@@ -5,8 +5,9 @@ class Article < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :send_area
   belongs_to :sender_day
+  belongs_to :item
 
-  validates :title, :text, presence: true
+  validates :title, presence: true
  
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :condition, numericality: { other_than: 1 , message: "can't be blank"}
