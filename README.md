@@ -3,14 +3,14 @@
 ## users
 |Column              |Type    |Options                   |
 |--------------------|--------|--------------------------|
-|nickname           |string  |null: false               |
+|nickname            |string  |null: false               |
 |email               |string  |null: false, unique: true |
 |encrypted_password  |string  |null: false               |
 |first_name          |string  |null: false               |
 |last_name           |string  |null: false               |
 |kana_first_name     |string  |null: false               |
 |kana_last_name      |string  |null: false               |
-|date_birth          |date    |null: false               |
+|birthday            |date    |null: false               |
 
 ### Association
 has_many :items
@@ -21,7 +21,7 @@ has_many :orders
 |Column             |Type       |Options                        |
 |-------------------|-----------|-------------------------------|
 |title              |string     |null: false                    |
-|description_item   |text       |null: false                    |
+|description        |text       |null: false                    |
 |price              |integer    |null: false                    |
 |category_id        |integer    |null: false                    |
 |condition_id       |integer    |null: false                    |
