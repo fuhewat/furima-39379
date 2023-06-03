@@ -7,7 +7,6 @@ class SenderDay < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :articles
   belongs_to :item
 
   end
