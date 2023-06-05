@@ -13,7 +13,5 @@ FactoryBot.define do
     after(:build) do |message|
       message.image.attach(io: File.open('public/images/omuomu.png'), filename: 'omuomu.png')
     end
-   
-
   end
 end
