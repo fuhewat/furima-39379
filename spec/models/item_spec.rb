@@ -2,11 +2,9 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-
   end
 
   describe '商品出品登録' do
-
     context '出品成功する場合' do
       it '全ての項目が入力されていれば登録できる' do
         expect(@item).to be_valid
@@ -65,25 +63,25 @@ RSpec.describe Item, type: :model do
       it '299円以下は登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price should be between 300 and 9999999"
+        expect(@item.errors.full_messages).to include 'Price should be between 300 and 9999999'
       end
 
       it '10000000円以上は登録できない' do
         @item.price = '100000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price should be between 300 and 9999999"
+        expect(@item.errors.full_messages).to include 'Price should be between 300 and 9999999'
       end
 
       it '価格は半角数値でしか登録できない' do
         @item.price = '１０１０'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price should be between 300 and 9999999"
+        expect(@item.errors.full_messages).to include 'Price should be between 300 and 9999999'
       end
 
       it 'userが紐付いていないと保存できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "User must exist"
+        expect(@item.errors.full_messages).to include 'User must exist'
       end
 
       it '画像が空では保存できない' do
@@ -91,7 +89,6 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Image can't be blank"
       end
-
     end
   end
 end
