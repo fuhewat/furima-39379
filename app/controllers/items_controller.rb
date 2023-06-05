@@ -23,9 +23,7 @@ class ItemsController < ApplicationController
 
   def edit
     return if current_user == @item.user
-
     redirect_to root_path
-    nil
   end
 
   def update
