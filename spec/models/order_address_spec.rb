@@ -4,7 +4,7 @@ RSpec.describe OrderAddress, type: :model do
   describe '配送先の保存' do
     before do
       user = FactoryBot.create(:user)
-      item = FactoryBot.create(:item, user: user)
+      item = FactoryBot.create(:item)
       @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
     end
 
@@ -90,6 +90,12 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'itemが紐付いていないと保存できない' do
+        @order_address.item_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
