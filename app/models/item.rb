@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_one :delivery_charge
   has_one :send_area
   has_one :sender_day
+  has_one :order
 
   validates :title, presence: true
   validates :description, presence: true
